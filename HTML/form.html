@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Primeira nota" id="nota1">
+        <input type="text" placeholder="Segunda nota" id="nota2">
+        <input type="text" placeholder="Terceira nota" id="nota3">
+        <input type="button" value="Verificar situação" onclick="verificarMedia()">
+    </form>
+
+    <script>
+
+        // Evento chamado quando botão é clicado
+        function verificarMedia() {
+
+            // Recuperando o valor inserido pelo id do elemento
+            var nota1 = parseInt(document.getElementById("nota1").value);
+            var nota2 = parseInt(document.getElementById("nota2").value);
+            var nota3 = parseInt(document.getElementById("nota3").value);
+
+            // Obtendo a média
+            var media = calculo(nota1, nota2, nota3);
+
+            // Obtendo a situação
+            var situacao = verificarSituacao(media);
+
+            // Mensagem com a resposta
+            alert(`Aluno está ${situacao} com a média ${media}`);
+        }
+
+        // Calcula a média
+        function calculo(nota1, nota2, nota3) {
+            return (nota1 + nota2 + nota3) / 3
+        }
+
+        // Retorna a situação
+        function verificarSituacao(media) {
+            return media >= 7? "Aprovado" : "Reprovado"
+        }
+    </script>
+</body>
+</html>
